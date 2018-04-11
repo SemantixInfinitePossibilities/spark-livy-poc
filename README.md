@@ -34,7 +34,7 @@ Cloudera's available packages (0.2.0 and 0.3.0): https://archive.cloudera.com/be
   
     `mvn package  # to avoid tests problems use: mvn package -Dmaven.test.skip=true `
   
-  * Remarks: At cloudera repository, currently, the master branch and *0.3.0* tag is not working, but *0.2.0* tag.
+     * Remarks: At cloudera repository, currently, the master branch and *0.3.0* tag is not working, but *0.2.0* tag.
   
   * The package is generated in folder `assembly/target`. Extract and move/copy to desired folder;
   ```
@@ -67,14 +67,18 @@ Tests done in browser or using a REST Client.
 ```
  curl -X GET "http://localhost:8998/batches/1"
 ```
-* Submiting a job. To use a local file edit the  
+* Submiting a job:
    ```
    curl 'Content-Type: application/json' -X POST -d "http://localhost:8998/batches/1" \
   "{
    "className": "org.apache.spark.examples.SparkPi",
    "executorMemory": "20g",
    "args": [2000],
-   "file": "/home/semantix/temp/spark-examples_2.11-2.3.0.jar"
+   "file": "/home/alfonso/jobs/spark-examples_2.11-2.3.0.jar"
   }"
    ```
-*  
+   * Remarks: When the job is located in a local file system, edit the `livy.conf`(available from 0.3.0 version): 
+   ```
+     livy.file.local-dir-whitelist = /home/semantix/jobs/
+   ```
+
