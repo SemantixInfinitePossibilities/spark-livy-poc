@@ -1,20 +1,24 @@
 import com.cloudera.livy.{ JobContext, LivyClient, LivyClientBuilder }
+//import com.cloudera.livy.client.http.HttpClient
+import com.ning.http.client.AsyncHttpClient
 import java.net.URI
 import scala.util.{ Try, Success }
+//import com.cloudera.livy.scalaapi._
 
 object LivyDemoApp {
-  val livyUrl = "http://localhost:8998/"
+  val livyServerUrl = "http://localhost:8998/"
 
   def main(args: Array[String]) = {
     livyJobCreation()
   }
 
   def livyClientRequest() = {
+    val client = HttpClient
 
   }
 
   def livyJobCreation() {
-    val client = new LivyClientBuilder().setURI(new URI(livyUrl)).build();
+    val client = new LivyClientBuilder().setURI(new URI(livyServerUrl)).build();
     //println("Uploading %s to the Spark context...\n", piJar)
     //client.uploadJar(new File(piJar)).get
     val samples = 100
