@@ -16,7 +16,7 @@ Cloudera's available packages (0.2.0 and 0.3.0): https://archive.cloudera.com/be
    export SPARK_HOME=/usr/lib/spark
    export HADOOP_CONF_DIR=/etc/hadoop/conf
   ```
-  * Start the livy server:
+* Start the livy server:
   ```
     ./bin/livy-server
   ```
